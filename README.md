@@ -1,2 +1,2 @@
 # trip-diary
-A web application to log trips around the world
+A web application to log your trips around the world
