@@ -1,0 +1,25 @@
+{
+  "name": "trip-diary",
+  "version": "1.0.0",
+  "description": "A web application to log your trips around the world",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sophietk/trip-diary.git"
+  },
+  "keywords": [
+    "trip",
+    "diary",
+    "logs",
+    "world",
+    "map",
+    "journey",
+    "voyage",
+    "travel"
+  ],
+  "bugs": {
+    "url": "https://github.com/sophietk/trip-diary/issues"
+  },
+  "homepage": "https://github.com/sophietk/trip-diary#readme"
+}
