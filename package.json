@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A web application to log your trips around the world",
   "scripts": {
+    "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/sophietk/trip-diary/issues"
   },
-  "homepage": "https://github.com/sophietk/trip-diary#readme"
+  "homepage": "https://github.com/sophietk/trip-diary#readme",
+  "devDependencies": {
+    "materialize-css": "^0.97.8",
+    "node-sass": "^3.11.2"
+  }
 }
