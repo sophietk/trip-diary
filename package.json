@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "A web application to log your trips around the world",
   "scripts": {
+    "build": "run-p build:*",
     "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
     "watch": "npm-watch",
-    "server": "http-server client -p 3000 -c0",
-    "start": "run-p server watch"
+    "server:dev": "http-server client -p 3000 -c0",
+    "server:prod": "http-server client -p $PORT",
+    "start": "run-p server:dev watch",
+    "heroku": "run-s build server:prod"
   },
   "watch": {
     "build:css": {
@@ -35,12 +38,12 @@
   },
   "homepage": "https://github.com/sophietk/trip-diary#readme",
   "devDependencies": {
-    "http-server": "0.9.0",
     "npm-watch": "0.1.8"
   },
   "dependencies": {
     "bourbon-neat": "2.0.0",
     "compass-sass-mixins": "0.12.7",
+    "http-server": "0.9.0",
     "node-sass": "4.5.0",
     "npm-run-all": "4.0.2"
   }
