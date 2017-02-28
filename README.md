@@ -14,3 +14,4 @@ npm i
 ```bash
 npm start
 ```
+The app is now available at http://localhost:3000
