@@ -1,5 +1,7 @@
 .container {
   @include grid-column(12);
+
+  font-family: 'Lane Arrow';
 }
 
 .title {
