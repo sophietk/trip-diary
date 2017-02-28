@@ -1,0 +1,25 @@
+.landing {
+  @include grid-container;
+
+  background: url('img/background-trip.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &-form {
+    @include vertical-centered;
+    @include grid-column(6);
+    @include grid-push(3);
+
+    &-el {
+      width: 100%;
+    }
+  }
+
+  &-links {
+    text-align: center;
+    color: $color-white;
+  }
+
+}

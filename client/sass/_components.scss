@@ -1,0 +1,53 @@
+@mixin component-base {
+  @include appearance(none);
+
+  height: 40px;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+// Buttons
+
+.btn {
+  @include component-base;
+
+  background: $color-blue;
+  border: none;
+  color: $color-white;
+  font-family: 'Roboto Black';
+  text-transform: uppercase;
+}
+
+// Input text
+
+.input {
+  @include component-base;
+  @include box-sizing(border-box);
+
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 0 15px;
+  font-family: 'Lane Arrow';
+}
+
+// Links
+
+.link {
+  font-family: 'Lane Arrow';
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @mixin link-color($color) {
+    color: $color;
+    &:active {
+      color: $color;
+    }
+  }
+
+  &--white {
+    @include link-color($color-white);
+  }
+}

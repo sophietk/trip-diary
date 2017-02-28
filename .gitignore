@@ -1,4 +1,4 @@
-client/css/
+client/css/main.css
 node_modules/
 .DS_Store
 npm-debug.log
