@@ -1,19 +1,27 @@
 $header-height: 120px;
 
 .header {
-    height: $header-height;
-    width: 100%;
-    background: $color-brown-dark;
-    text-align: center;
+  @include vertical-centered-container;
+  @include background-cover('img/background-trip.jpg', $color-brown-dark);
 
-    &-title {
-        display: block;
-        color: $color-brown;
+  height: $header-height;
+  text-align: center;
+  font-family: 'Lane Arrow';
 
-        &--big {
-            display: block;
-            color: $color-white;
-            font-size: 2.5rem;
-        }
+  &-title {
+    @include vertical-centered;
+    @include grid-column(12);
+
+    display: block;
+    margin: 0;
+    color: $color-brown;
+    font-size: 1rem;
+    line-height: 1rem;
+
+    &--big {
+      display: block;
+      color: $color-white;
+      font-size: 2.5rem;
     }
+  }
 }

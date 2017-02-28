@@ -3,3 +3,15 @@
   top: 50%;
   transform: translate(0, -50%);
 }
+
+@mixin vertical-centered-container {
+  position: relative;
+}
+
+@mixin background-cover($img, $color: transparent) {
+  background: $color url($img) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

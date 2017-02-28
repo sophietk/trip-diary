@@ -11,3 +11,10 @@
 
 @import 'landing';
 @import 'header';
+@import 'footer';
+@import 'map';
+@import 'contents';
+
+body {
+  background: $color-beige-light;
+}

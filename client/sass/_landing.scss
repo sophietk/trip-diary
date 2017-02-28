@@ -1,11 +1,6 @@
 .landing {
   @include grid-container;
-
-  background: url('img/background-trip.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  @include background-cover('img/background-trip.jpg', $color-brown-dark);
 
   &-form {
     @include vertical-centered;
@@ -20,6 +15,7 @@
   &-links {
     text-align: center;
     color: $color-white;
+    font-family: 'Lane Arrow';
   }
 
 }

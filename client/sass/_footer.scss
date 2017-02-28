@@ -1,0 +1,18 @@
+.footer {
+  @include vertical-centered-container;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: $color-brown-dark;
+
+  &-links {
+    @include vertical-centered;
+    @include grid-column(12);
+
+    text-align: center;
+    color: $color-white;
+    font-size: 0.8rem;
+  }
+}

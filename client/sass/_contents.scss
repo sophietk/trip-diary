@@ -1,0 +1,10 @@
+.container {
+  @include grid-column(12);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-family: 'Lane Arrow';
+  color: $color-brown;
+  border-bottom: 1px solid;
+}
