@@ -8,3 +8,9 @@ A web application to log your trips around the world
 ```bash
 npm i
 ```
+
+### start server and dev tools
+
+```bash
+npm start
+```

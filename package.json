@@ -3,7 +3,20 @@
   "version": "1.0.0",
   "description": "A web application to log your trips around the world",
   "scripts": {
-    "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css"
+    "postinstall": "run-p init:dev",
+    "init:dev": "mkdir -p client/css",
+    "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
+    "watch": "npm-watch",
+    "server": "http-server client -p 3000",
+    "start": "run-p server watch"
+  },
+  "watch": {
+    "build:css": {
+      "patterns": [
+        "client/sass"
+      ],
+      "extensions": "scss"
+    }
   },
   "repository": {
     "type": "git",
@@ -24,7 +37,11 @@
   },
   "homepage": "https://github.com/sophietk/trip-diary#readme",
   "devDependencies": {
-    "materialize-css": "^0.97.8",
-    "node-sass": "^3.11.2"
+    "http-server": "0.9.0",
+    "npm-watch": "0.1.8"
+  },
+  "dependencies": {
+    "node-sass": "4.5.0",
+    "npm-run-all": "4.0.2"
   }
 }
