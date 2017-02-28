@@ -1,0 +1,19 @@
+$header-height: 120px;
+
+.header {
+    height: $header-height;
+    width: 100%;
+    background: $color-brown-dark;
+    text-align: center;
+
+    &-title {
+        display: block;
+        color: $color-brown;
+
+        &--big {
+            display: block;
+            color: $color-white;
+            font-size: 2.5rem;
+        }
+    }
+}

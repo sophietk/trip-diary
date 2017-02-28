@@ -7,7 +7,7 @@
     "init:dev": "mkdir -p client/css",
     "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
     "watch": "npm-watch",
-    "server": "http-server client -p 3000",
+    "server": "http-server client -p 3000 -c0",
     "start": "run-p server watch"
   },
   "watch": {
