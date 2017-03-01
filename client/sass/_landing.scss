@@ -1,14 +1,13 @@
 .landing {
   @include grid-container;
-  @include background-cover('img/background-trip.jpg', $color-brown-dark);
+  @include background-cover('img/background-trip.jpg', $color-brown-dark, fixed);
 
   &-form {
     @include vertical-centered;
-    @include grid-column(6);
-    @include grid-push(3);
+    @include grid-column(8);
+    @include grid-push(2);
 
-    &-el {
-      width: 100%;
+    &-el {width: 100%;
     }
   }
 

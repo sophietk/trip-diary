@@ -7,7 +7,7 @@
     "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
     "watch": "npm-watch",
     "server:dev": "http-server client -p 3000 -c0",
-    "server:prod": "http-server client -p $PORT",
+    "server:prod": "http-server client -p $PORT -c0",
     "start": "run-p server:dev watch",
     "heroku": "run-s build server:prod"
   },

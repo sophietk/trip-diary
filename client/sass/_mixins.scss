@@ -8,10 +8,12 @@
   position: relative;
 }
 
-@mixin background-cover($img, $color: transparent) {
-  background: $color url($img) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+@mixin background-cover($img, $color: transparent, $attachment: initial) {
+  @if $attachment == initial {
+    background: $color url($img) no-repeat center center;
+  } @else {
+    background: $color url($img) no-repeat center center $attachment;
+  }
+  @include background-size(cover);
+  min-height: 100%;
 }
