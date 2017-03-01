@@ -7,8 +7,8 @@
     "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
     "watch": "npm-watch",
     "lint:js": "standard",
-    "server:dev": "http-server client -p 3000 -c0",
-    "server:prod": "http-server client -p $PORT -c0",
+    "server:dev": "nodemon server",
+    "server:prod": "node server",
     "start": "run-p server:dev watch",
     "heroku": "run-s build server:prod"
   },
@@ -45,7 +45,7 @@
   "dependencies": {
     "bourbon-neat": "2.0.0",
     "compass-sass-mixins": "0.12.7",
-    "http-server": "0.9.0",
+    "express": "4.14.1",
     "node-sass": "4.5.0",
     "npm-run-all": "4.0.2"
   }
