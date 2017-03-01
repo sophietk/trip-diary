@@ -4,16 +4,34 @@ const crypto = require('crypto')
 const users = []
 
 module.exports = app => {
-  app.post('/signup', (req, res) => {
+  app.post('/api/signup', (req, res) => {
     const hash = crypto.createHash('sha256')
-    hash.update(req.body.password)
+      .update(req.body.password)
+      .digest('hex')
 
     const user = {
-      email: req.email,
-      password: hash.digest('hex')
+      name: req.body.name,
+      email: req.body.email,
+      hash: hash
     }
 
     users.push(user)
-    res(user)
+    res.send(user)
+  })
+
+  app.post('/api/signin', (req, res) => {
+    const email = req.body.email
+    const hash = crypto.createHash('sha256')
+      .update(req.body.password)
+      .digest('hex')
+
+    const signinUser = users.find(user => user.email === email && user.hash === hash)
+
+    if (!signinUser) {
+      res.sendStatus(404)
+      return
+    }
+
+    res.send(signinUser)
   })
 }
