@@ -18,6 +18,12 @@
         "client/sass"
       ],
       "extensions": "scss"
+    },
+    "lint:js": {
+      "patterns": [
+        "."
+      ],
+      "extensions": "js"
     }
   },
   "repository": {
