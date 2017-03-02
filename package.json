@@ -33,6 +33,13 @@
       "extensions": "js"
     }
   },
+  "standard": {
+    "globals": [
+      "alert",
+      "fetch",
+      "FormData"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sophietk/trip-diary.git"
