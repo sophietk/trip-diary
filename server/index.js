@@ -12,7 +12,7 @@ app.get('/ping', function (req, res) {
 })
 
 // static files
-app.use(express.static('client'))
+app.use(express.static('client/dist'))
 
 require('./api/users')(app)
 

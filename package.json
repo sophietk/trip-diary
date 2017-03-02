@@ -4,9 +4,10 @@
   "description": "A web application to log your trips around the world",
   "scripts": {
     "build": "run-p build:*",
-    "build:css": "node-sass --output-style compressed client/sass/main.scss > client/css/main.css",
+    "build:css": "node-sass --output-style compressed client/src/sass/main.scss > client/dist/assets/main.css",
+    "build:js": "webpack -d",
     "watch": "npm-watch",
-    "lint:js": "standard",
+    "lint:js": "standard \"*.js\" \"client/src/**/*.js\" \"server/**/*.js\"",
     "server:dev": "nodemon server",
     "server:prod": "node server",
     "start": "run-p server:dev watch",
@@ -18,6 +19,12 @@
         "client/sass"
       ],
       "extensions": "scss"
+    },
+    "build:js": {
+      "patterns": [
+        "client/src"
+      ],
+      "extensions": "js,jsx"
     },
     "lint:js": {
       "patterns": [
@@ -49,11 +56,13 @@
     "standard": "9.0.0"
   },
   "dependencies": {
-    "body-parser": "^1.16.1",
+    "body-parser": "1.16.1",
     "bourbon-neat": "2.0.0",
     "compass-sass-mixins": "0.12.7",
     "express": "4.14.1",
     "node-sass": "4.5.0",
-    "npm-run-all": "4.0.2"
+    "npm-run-all": "4.0.2",
+    "webpack": "2.2.1",
+    "whatwg-fetch": "2.0.3"
   }
 }
