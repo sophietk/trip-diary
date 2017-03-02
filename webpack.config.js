@@ -8,7 +8,7 @@ const config = {
     // polyfills
     'whatwg-fetch',
     // app
-    APP_DIR + '/js/main.js'
+    APP_DIR + '/js/app.jsx'
   ],
   output: {
     path: BUILD_DIR,
