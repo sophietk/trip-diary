@@ -2,7 +2,7 @@ $header-height: 120px;
 
 .header {
   @include vertical-centered-container;
-  @include background-cover('img/background-trip.jpg', $color-brown-dark);
+  @include background-cover('img/background-header.jpg', $color-brown-dark);
 
   height: $header-height;
   text-align: center;
