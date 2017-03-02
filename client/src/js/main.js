@@ -1,17 +1,14 @@
-import api from './api'
+import React from 'react'
+import { render } from 'react-dom'
 
-;(function () {
-  document.querySelector('#signin').addEventListener('submit', event => {
-    event.preventDefault()
+import Signin from './signin.jsx'
 
-    const formData = new FormData(document.getElementById('signin'))
-    api.signin({
-      email: formData.get('email'),
-      password: formData.get('password')
-    })
-      .then(json => {
-        window.location.href = 'logged.html'
-      })
-      .catch(alert)
-  })
-})()
+class App extends React.Component {
+  render () {
+    return (
+      <Signin />
+    )
+  }
+}
+
+render(<App />, document.getElementById('app'))
