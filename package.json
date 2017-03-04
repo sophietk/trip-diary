@@ -16,7 +16,7 @@
   "watch": {
     "build:css": {
       "patterns": [
-        "client/sass"
+        "client/src/sass"
       ],
       "extensions": "scss"
     },
