@@ -24,4 +24,18 @@ $header-height: 120px;
       line-height: 1rem;
     }
   }
+
+  &-back {
+    $size: 40px;
+    position: absolute;
+    top: ($header-height - $size) / 2;
+    left: 10px;
+    color: white;
+    font-size: $size;
+    text-decoration: none;
+
+    &::before {
+      content: '\2190';
+    }
+  }
 }

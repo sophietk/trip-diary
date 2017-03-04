@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 import CountryMap from './country-map.jsx'
 import api from '../api'
@@ -27,6 +28,7 @@ export default class Country extends React.Component {
       <div>
         <header className='header'>
           <h1 className='header-title'>{this.state.name}</h1>
+          <Link to='/app/world' className='header-back' />
         </header>
         <main>
           <CountryMap country={this.state} />
