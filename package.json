@@ -8,7 +8,7 @@
     "build:js": "webpack -d",
     "watch": "npm-watch",
     "lint:js": "standard \"*.js\" \"client/src/**/*.js\" \"server/**/*.js\"",
-    "server:dev": "nodemon server",
+    "server:dev": "nodemon -w server server",
     "server:prod": "node server",
     "start": "run-p server:dev watch",
     "heroku": "run-s build server:prod"
