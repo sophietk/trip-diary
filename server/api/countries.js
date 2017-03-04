@@ -1,6 +1,7 @@
 const validate = require('express-validation')
 const Joi = require('joi')
-const refCountries = require('country-data').countries
+const refLocalCountries = require('country-data').countries
+const Client = require('node-rest-client').Client
 
 module.exports = app => {
   app.get('/api/countries',
@@ -15,7 +16,7 @@ module.exports = app => {
       }
     }),
     (req, res) => {
-      const country = refCountries[req.body.alpha3]
+      const country = refLocalCountries[req.body.alpha3]
 
       if (!country) {
         res.sendStatus(400)
@@ -29,19 +30,16 @@ module.exports = app => {
   app.get('/api/countries/:countryId',
     (req, res) => {
       const countryId = req.params.countryId
+      const refLocalCountry = refLocalCountries[countryId]
       const visitedCountry = app.currentUser.countries.find(country => country.alpha3 === countryId)
 
-      if (!visitedCountry) {
-        const unvisitedCountry = refCountries[countryId]
-
-        if (!unvisitedCountry) {
-          res.sendStatus(400)
-        }
-
-        res.send(unvisitedCountry)
+      if (!refLocalCountry) {
+        res.sendStatus(400)
         return
       }
 
-      res.send(visitedCountry)
+      new Client().get(`https://restcountries.eu/rest/v2/alpha/${countryId}`, (refRemoteCountry, response) => {
+        res.send(Object.assign({}, refRemoteCountry, refLocalCountry, visitedCountry))
+      })
     })
 }

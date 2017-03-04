@@ -30,7 +30,20 @@ export default class Country extends React.Component {
         </header>
         <main>
           <CountryMap countryId={this.props.params.countryId} />
-          <section className='contents' />
+          <section className='contents'>
+            <p>
+              Capital:
+              {this.state.capital}
+            </p>
+            <p>
+              Population:
+              {this.state.population}
+            </p>
+            <p>
+              Area:
+              {this.state.area} km²
+            </p>
+          </section>
         </main>
       </div>
     )
