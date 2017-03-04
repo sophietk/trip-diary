@@ -1,19 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import api from './api'
+import api from '../api'
 
-export default class Subscribe extends React.Component {
+export default class Signin extends React.Component {
   submit (event) {
     event.preventDefault()
     const formData = new FormData(this.form)
-    api.signup({
-      name: formData.get('name'),
+    api.signin({
       email: formData.get('email'),
       password: formData.get('password')
     })
       .then(json => {
-        window.location.href = 'logged.html'
+        browserHistory.push('/app')
       })
       .catch(alert)
   }
@@ -21,17 +20,11 @@ export default class Subscribe extends React.Component {
   render () {
     return (
       <form
-        id='subscribe'
+        id='signin'
         className='landing-form'
         onSubmit={this.submit.bind(this)}
         ref={form => {
                this.form = form}}>
-        <input
-          className='landing-form-el input'
-          name='name'
-          type='text'
-          required
-          placeholder='Name' />
         <input
           className='landing-form-el input'
           name='email'
@@ -45,10 +38,12 @@ export default class Subscribe extends React.Component {
           required
           placeholder='Password' />
         <button className='landing-form-el btn' type='submit'>
-          Subscribe
+          Log in
         </button>
         <div className='landing-links'>
-          <Link to='/signin' className='link link--white' href=''> Sign in
+          <Link to='/start/subscribe' className='link link--white' href=''> Subscribe
+          </Link> |
+          <Link className='link link--white' href=''> Forget my password
           </Link>
         </div>
       </form>
