@@ -10,3 +10,23 @@
   color: $color-brown;
   border-bottom: 1px solid;
 }
+
+.stamp {
+  @include transform(rotate(-20deg));
+
+  display: inline-block;
+  width: 94px;
+  height: 94px;
+  margin: 10px;
+  padding-top: 37px;
+  box-sizing: border-box;
+  background-image: url('img/stamp.png');
+  text-align: center;
+  font-family: Verdana;
+  font-weight: bold;
+  color: $color-brown;
+
+  &--2lines {
+    padding-top: 29px;
+  }
+}
