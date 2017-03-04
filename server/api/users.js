@@ -21,7 +21,8 @@ module.exports = app => {
       const user = {
         name: req.body.name,
         email: req.body.email,
-        hash: hash
+        hash: hash,
+        countries: []
       }
 
       users.push(user)
