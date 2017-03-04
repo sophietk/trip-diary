@@ -19,7 +19,7 @@ export default class Country extends React.Component {
     }
   */
   render () {
-    if (!this.state) {
+    if (!this.state.name) {
       return null
     }
 
@@ -29,7 +29,7 @@ export default class Country extends React.Component {
           <h1 className='header-title'>{this.state.name}</h1>
         </header>
         <main>
-          <CountryMap countryId={this.props.params.countryId} />
+          <CountryMap country={this.state} />
           <section className='contents'>
             <p>
               Capital:

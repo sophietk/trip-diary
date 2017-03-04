@@ -37,7 +37,8 @@
     "globals": [
       "alert",
       "fetch",
-      "FormData"
+      "FormData",
+      "screen"
     ]
   },
   "repository": {

@@ -6,7 +6,7 @@ const Client = require('node-rest-client').Client
 module.exports = app => {
   app.get('/api/countries',
     (req, res) => {
-      res.send(app.currentUser.countries || [])
+      res.send(app.currentUser.countries)
     })
 
   app.post('/api/countries',
@@ -23,7 +23,7 @@ module.exports = app => {
         return
       }
 
-      app.currentUser.countries.push(country)
+      app.currentUser.countries.push({alpha3: req.body.alpha3, visited: true})
       res.send(country).status(201)
     })
 
