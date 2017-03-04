@@ -2,8 +2,7 @@ const crypto = require('crypto')
 const validate = require('express-validation')
 const Joi = require('joi')
 
-// in memory database for now
-const users = []
+const users = require('../db/users')
 
 module.exports = app => {
   app.post('/api/signup',
@@ -26,6 +25,7 @@ module.exports = app => {
       }
 
       users.push(user)
+      app.currentUser = user
       res.send(user)
     })
 
@@ -49,6 +49,7 @@ module.exports = app => {
         return
       }
 
+      app.currentUser = signinUser
       res.send(signinUser)
     })
 }

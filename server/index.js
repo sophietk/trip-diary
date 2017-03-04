@@ -29,6 +29,7 @@ app.get('*', (req, res, next) => {
 })
 
 require('./api/users')(app)
+require('./api/countries')(app)
 
 const port = process.env.PORT || 3000
 app.listen(port, function () {

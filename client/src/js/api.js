@@ -1,8 +1,9 @@
-function jsonFetch (url, options) {
+function get (url, options) {
   return fetch(url, Object.assign({
     headers: {
       'Content-type': 'application/json; charset=UTF-8'
-    }
+    },
+    method: 'get'
   }, options))
     .then(response => {
       if (!response.ok) {
@@ -13,7 +14,7 @@ function jsonFetch (url, options) {
 }
 
 function post (url, data) {
-  return jsonFetch(url, {
+  return get(url, {
     method: 'post',
     body: JSON.stringify(data)
   })
@@ -32,6 +33,16 @@ class Api {
     return post('/api/signin', {
       email: data.email,
       password: data.password
+    })
+  }
+
+  listCountries () {
+    return get('/api/countries')
+  }
+
+  addCountry (alpha3) {
+    return post('/api/countries', {
+      alpha3: alpha3
     })
   }
 }

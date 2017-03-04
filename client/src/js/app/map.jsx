@@ -1,29 +1,43 @@
 import React from 'react'
 import Datamap from 'datamaps'
 
+import api from '../api'
+
 const WORLD_MAP_RATIO = 475 / 700
 
 export default class Map extends React.Component {
   componentDidMount () {
-    const mapData = this.props.visitedCountries.reduce((data, country) => {
-      data[country.code] = { fillKey: 'visited' }
-      return data
-    }, {})
-    const map = new Datamap({
+    this.map = new Datamap({
       element: document.getElementById('map'),
       projection: 'mercator',
       fills: {
         defaultFill: '#e7dbcb', // cf. _colors.scss $color-brown-light
         visited: '#2dced1' // cf. _colors.scss $color-blue
       },
-      data: mapData,
       geographyConfig: {
         highlightFillColor: '#f8f7f4', // cf. _colors.scss $color-beige-light
         highlightBorderColor: '#2dced1', // cf. _colors.scss $color-brown
         highlightBorderWidth: 2,
         highlightBorderOpacity: 0.5
+      },
+      done: datamap => {
+        datamap.svg.selectAll('.datamaps-subunit').on('click', geography => {
+          api.addCountry(geography.id)
+            .then(() => api.listCountries())
+            .then(countries => this.updateMap(countries))
+        })
       }
     })
+    api.listCountries()
+      .then(countries => this.updateMap(countries))
+  }
+
+  updateMap (visitedCountries) {
+    const mapData = visitedCountries.reduce((data, country) => {
+      data[country.alpha3] = { fillKey: 'visited' }
+      return data
+    }, {})
+    this.map.updateChoropleth(mapData)
   }
 
   render () {
@@ -33,8 +47,4 @@ export default class Map extends React.Component {
       <section id='map' className='map' style={{minHeight: (fullWidth * WORLD_MAP_RATIO) + 'px'}} />
     )
   }
-}
-
-Map.propTypes = {
-  visitedCountries: React.PropTypes.array
 }
