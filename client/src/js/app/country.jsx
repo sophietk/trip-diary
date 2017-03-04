@@ -11,14 +11,19 @@ export default class Country extends React.Component {
   }
 
   componentWillMount () {
+    this.fetchCountry()
+  }
+
+  fetchCountry () {
     api.getCountry(this.props.params.countryId)
       .then(country => this.setState(country))
   }
-  /*
-    visitCountry () {
-      api.addCountry(geography.id)
-    }
-  */
+
+  visitCountry () {
+    api.addCountry(this.props.params.countryId)
+    .then(() => this.fetchCountry)
+  }
+
   render () {
     if (!this.state.name) {
       return null
@@ -33,17 +38,17 @@ export default class Country extends React.Component {
         <main>
           <CountryMap country={this.state} />
           <section className='contents'>
+            <div className='btn btn--add' onClick={() => this.visitCountry()}>
+              +
+            </div>
             <p>
-              Capital:
-              {this.state.capital}
+              Capital: {this.state.capital}
             </p>
             <p>
-              Population:
-              {this.state.population}
+              Population: {this.state.population}
             </p>
             <p>
-              Area:
-              {this.state.area} km²
+              Area: {this.state.area} km²
             </p>
           </section>
         </main>

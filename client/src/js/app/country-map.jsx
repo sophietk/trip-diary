@@ -1,6 +1,5 @@
 import React from 'react'
 import Datamap from 'datamaps'
-import d3 from 'd3'
 
 const WORLD_MAP_RATIO = 475 / 700
 

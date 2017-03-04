@@ -16,6 +16,16 @@
   color: $color-white;
   font-family: 'Roboto Black';
   text-transform: uppercase;
+
+  &--add {
+    $size: 40px;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    text-align: center;
+    line-height: $size;
+    cursor: pointer;
+  }
 }
 
 // Input text
