@@ -39,7 +39,7 @@ export default class CountryMap extends React.Component {
     const fullWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width
 
     return (
-      <section id='map' className='map' style={{ minHeight: (fullWidth * WORLD_MAP_RATIO) + 'px'}} />
+      <section id='map' className='map' style={{minHeight: (fullWidth * WORLD_MAP_RATIO) + 'px'}} />
     )
   }
 }
