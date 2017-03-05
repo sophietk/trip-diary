@@ -18,11 +18,11 @@ render((
         <Route path='signin' components={{main: Signin}} />
         <Route path='subscribe' components={{main: Subscribe}} />
       </Route>
-      <Route path='app'>
+      <Route path='app' component={LayoutUser}>
         <IndexRedirect to='world' />
-        <Route path='world' component={World} />
+        <Route path='world' components={{main: World}} />
         <Route path='country'>
-          <Route path=':countryId' component={Country} />
+          <Route path=':countryId' components={{main: Country}} />
         </Route>
       </Route>
     </Route>

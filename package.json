@@ -7,7 +7,7 @@
     "build:css": "node-sass --output-style compressed client/src/sass/main.scss > client/dist/assets/main.css",
     "build:js": "webpack -d",
     "watch": "npm-watch",
-    "lint:js": "standard \"*.js\" \"client/src/**/*.js\" \"server/**/*.js\"",
+    "lint:js": "standard",
     "server:dev": "nodemon -w server server",
     "server:prod": "node server",
     "start": "run-p server:dev watch",

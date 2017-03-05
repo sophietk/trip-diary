@@ -25,7 +25,8 @@ export default class Subscribe extends React.Component {
         className='landing-form'
         onSubmit={this.submit.bind(this)}
         ref={form => {
-               this.form = form}}>
+          this.form = form
+        }}>
         <input
           className='landing-form-el input'
           name='name'

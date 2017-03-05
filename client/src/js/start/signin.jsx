@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 import api from '../api'
 
@@ -24,7 +24,8 @@ export default class Signin extends React.Component {
         className='landing-form'
         onSubmit={this.submit.bind(this)}
         ref={form => {
-               this.form = form}}>
+          this.form = form
+        }}>
         <input
           className='landing-form-el input'
           name='email'
