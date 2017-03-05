@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
+import numeral from 'numeral'
 
 import CountryMap from './country-map.jsx'
 import api from '../api'
@@ -24,6 +25,23 @@ export default class Country extends React.Component {
     .then(() => this.fetchCountry)
   }
 
+  contents () {
+    return (
+      <div>
+        <div className='btn btn--add' onClick={() => this.visitCountry()} />
+        <div className='badge badge--capital'>
+          {this.state.capital}
+        </div>
+        <div className='badge badge--population'>
+          {numeral(this.state.population).format('0.0a')}
+        </div>
+        <div className='badge badge--area'>
+          {numeral(this.state.area).format('0.0a')}
+        </div>
+      </div>
+    )
+  }
+
   render () {
     if (!this.state.name) {
       return null
@@ -36,21 +54,7 @@ export default class Country extends React.Component {
           <Link to='/app/world' className='header-back' />
         </header>
         <main>
-          <CountryMap country={this.state} />
-          <section className='contents'>
-            <div className='btn btn--add' onClick={() => this.visitCountry()}>
-              +
-            </div>
-            <p>
-              Capital: {this.state.capital}
-            </p>
-            <p>
-              Population: {this.state.population}
-            </p>
-            <p>
-              Area: {this.state.area} km²
-            </p>
-          </section>
+          <CountryMap country={this.state} contents={this.contents()} />
         </main>
       </div>
     )

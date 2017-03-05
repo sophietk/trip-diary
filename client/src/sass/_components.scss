@@ -19,12 +19,20 @@
 
   &--add {
     $size: 40px;
+    position: absolute;
+    bottom: 10px;
+    left: calc(50% - #{$size / 2});
     width: $size;
     height: $size;
     border-radius: $size;
     text-align: center;
+    font-size: 1.8rem;
     line-height: $size;
     cursor: pointer;
+
+    &::after {
+      content: '\FF0B';
+    }
   }
 }
 
@@ -86,5 +94,63 @@
     border-bottom-color: $color-beige-dark;
     border-width: $arrow-size;
     margin-left: -$arrow-size;
+  }
+}
+
+// Badges
+
+.badge {
+  $size: 90px;
+  $size-icon: 30px;
+  $margin-icon: 5px;
+  position: absolute;
+  width: $size;
+  height: $size;
+  padding-top: $size-icon + $margin-icon * 2;
+  box-sizing: border-box;
+  background: $color-brown;
+  border-radius: $size;
+  background-size: $size-icon;
+  background-repeat: no-repeat;
+  background-position: ($size - $size-icon)/2 $margin-icon;
+  font-family: 'Roboto Black';
+  text-align: center;
+  color: white;
+
+  &::before,
+  &::after {
+    display: block;
+    font-family: 'Lane Arrow';
+    font-size: 0.8rem;
+  }
+
+  &--capital {
+    background-image: url('img/capital.svg');
+    top: calc(50% - #{$size / 2});
+    left: calc(50% - #{$size / 2});
+
+    &::before {
+      content: 'Capital:';
+    }
+  }
+
+  &--area {
+    background-image: url('img/area.svg');
+    top: 40px;
+    right: 40px;
+
+    &::after {
+      content: 'km²';
+    }
+  }
+
+  &--population {
+    background-image: url('img/population.svg');
+    bottom: 40px;
+    right: 40px;
+
+    &::after {
+      content: 'people';
+    }
   }
 }
