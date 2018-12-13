@@ -1,4 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Route, Switch, Redirect } from 'react-router-dom'
+
+import Signin from './signin.jsx'
+import Subscribe from './subscribe.jsx'
 
 export default class LayoutLanding extends React.Component {
   componentDidMount () {
@@ -10,10 +15,16 @@ export default class LayoutLanding extends React.Component {
   }
 
   render () {
-    return this.props.main
+    return (
+      <Switch>
+        <Route path='/start/signin' component={Signin} />
+        <Route path='/start/subscribe' component={Subscribe} />
+        <Redirect path='*' to='/start/signin' />
+      </Switch>
+    )
   }
 }
 
 LayoutLanding.propTypes = {
-  main: React.PropTypes.object
+  main: PropTypes.object
 }

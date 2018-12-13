@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import numeral from 'numeral'
 
 import CountryMap from './country-map.jsx'
@@ -16,12 +16,12 @@ export default class Country extends React.Component {
   }
 
   fetchCountry () {
-    api.getCountry(this.props.params.countryId)
+    api.getCountry(this.props.match.params.countryId)
       .then(country => this.setState(country))
   }
 
   visitCountry () {
-    api.addCountry(this.props.params.countryId)
+    api.addCountry(this.props.match.params.countryId)
     .then(() => this.fetchCountry)
   }
 

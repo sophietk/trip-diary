@@ -1,10 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Switch, Route, Redirect } from 'react-router-dom'
+
+import World from './world.jsx'
+import Country from './country.jsx'
 
 export default class LayoutUser extends React.Component {
   render () {
     return (
       <div>
-        {this.props.main}
+        <Switch>
+          <Route path='/app/world' component={World} />
+          <Route path='/app/country/:countryId' component={Country} />
+          <Redirect path='*' to='/app/world' />
+        </Switch>
         <div className='footer-pusher' />
         <footer className='footer'>
           <div className='footer-links'>
@@ -17,5 +26,5 @@ export default class LayoutUser extends React.Component {
 }
 
 LayoutUser.propTypes = {
-  main: React.PropTypes.object
+  main: PropTypes.object
 }

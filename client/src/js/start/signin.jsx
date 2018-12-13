@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, browserHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import api from '../api'
 
@@ -12,7 +12,7 @@ export default class Signin extends React.Component {
       password: formData.get('password')
     })
       .then(json => {
-        browserHistory.push('/app')
+        this.props.history.push('/app')
       })
       .catch(alert)
   }
@@ -44,8 +44,8 @@ export default class Signin extends React.Component {
         <div className='landing-links'>
           <Link to='/start/subscribe' className='link link--white' href=''> Subscribe
           </Link> |
-          <Link className='link link--white' href=''> Forget my password
-          </Link>
+          <a className='link link--white' href=''> Forget my password
+          </a>
         </div>
       </form>
     )

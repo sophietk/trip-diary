@@ -1,6 +1,6 @@
 import React from 'react'
-import { browserHistory } from 'react-router'
 import Datamap from 'datamaps'
+import PropTypes from 'prop-types'
 
 const WORLD_MAP_RATIO = 475 / 700
 
@@ -11,6 +11,8 @@ export default class WorldMap extends React.Component {
   }
 
   initMap () {
+    const { history } = this.props
+
     this.map = new Datamap({
       element: document.getElementById('map'),
       projection: 'mercator',
@@ -26,7 +28,7 @@ export default class WorldMap extends React.Component {
       },
       done: datamap => {
         datamap.svg.selectAll('.datamaps-subunit').on('click', geography => {
-          browserHistory.push(`/app/country/${geography.id}`)
+          history.push(`/app/country/${geography.id}`)
         })
       }
     })
@@ -54,5 +56,5 @@ export default class WorldMap extends React.Component {
 }
 
 WorldMap.propTypes = {
-  visitedCountries: React.PropTypes.array
+  visitedCountries: PropTypes.array
 }

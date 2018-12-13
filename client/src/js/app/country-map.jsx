@@ -1,5 +1,6 @@
 import React from 'react'
 import Datamap from 'datamaps'
+import PropTypes from 'prop-types'
 
 const WORLD_MAP_RATIO = 475 / 700
 
@@ -47,5 +48,5 @@ export default class CountryMap extends React.Component {
 }
 
 CountryMap.propTypes = {
-  country: React.PropTypes.object.isRequired
+  country: PropTypes.object.isRequired
 }

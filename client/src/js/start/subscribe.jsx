@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, browserHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import api from '../api'
 
@@ -13,7 +13,7 @@ export default class Subscribe extends React.Component {
       password: formData.get('password')
     })
       .then(json => {
-        browserHistory.push('/app')
+        this.props.history.push('/app')
       })
       .catch(alert)
   }

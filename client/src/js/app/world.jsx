@@ -25,7 +25,7 @@ export default class VisitedCountries extends React.Component {
           <h1 className='header-title'><span className='header-title--small'>Mon carnet de</span>voyages</h1>
         </header>
         <main>
-          <WorldMap visitedCountries={this.state.visitedCountries} />
+          <WorldMap visitedCountries={this.state.visitedCountries} history={this.props.history} />
           <section className='contents'>
             <h3 className='title'>Statistics</h3>
             <div className='stamp'>560 km</div>
