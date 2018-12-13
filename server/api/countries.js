@@ -23,7 +23,7 @@ module.exports = app => {
         return
       }
 
-      app.currentUser.countries.push({alpha3: req.body.alpha3, visited: true})
+      app.currentUser.countries.push({ alpha3: req.body.alpha3, visited: true })
       res.send(country).status(201)
     })
 
