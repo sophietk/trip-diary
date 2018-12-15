@@ -16,6 +16,7 @@
   color: $color-white;
   font-family: 'Roboto Black';
   text-transform: uppercase;
+  cursor: pointer;
 
   &--add {
     $size: 40px;
@@ -28,7 +29,6 @@
     text-align: center;
     font-size: 1.8rem;
     line-height: $size;
-    cursor: pointer;
 
     &::after {
       content: '\FF0B';

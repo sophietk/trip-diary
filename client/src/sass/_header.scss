@@ -2,7 +2,10 @@ $header-height: 120px;
 
 .header {
   @include vertical-centered-container;
-  @include background-cover('img/background-header.jpg', $color-brown-dark);
+  // @include background-cover('img/background-header.jpg', $color-brown-dark);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)) no-repeat center center,
+    $color-brown-dark url('img/background-header.jpg') no-repeat center center;
+  background-size: cover, cover;
 
   height: $header-height;
   text-align: center;
@@ -33,9 +36,10 @@ $header-height: 120px;
     color: white;
     font-size: $size;
     text-decoration: none;
+    transform: rotate(180deg);
 
     &::before {
-      content: '\2190';
+      content: '\279C';
     }
   }
 }
