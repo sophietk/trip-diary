@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import Signin from './signin.jsx'
@@ -23,8 +22,4 @@ export default class LayoutLanding extends React.Component {
       </Switch>
     )
   }
-}
-
-LayoutLanding.propTypes = {
-  main: PropTypes.object
 }

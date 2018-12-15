@@ -8,7 +8,9 @@ import api from '../api'
 export default class Country extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      alpha3: props.match.params.countryId
+    }
   }
 
   componentWillMount () {
@@ -33,20 +35,16 @@ export default class Country extends React.Component {
           {this.state.capital}
         </div>
         <div className='badge badge--population'>
-          {numeral(this.state.population).format('0.0a')}
+          {(this.state.population && numeral(this.state.population).format('0.0a')) || '\u00A0'}
         </div>
         <div className='badge badge--area'>
-          {numeral(this.state.area).format('0.0a')}
+          {(this.state.area && numeral(this.state.area).format('0.0a')) || '\u00A0'}
         </div>
       </div>
     )
   }
 
   render () {
-    if (!this.state.name) {
-      return null
-    }
-
     return (
       <div>
         <header className='header'>

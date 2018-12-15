@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import World from './world.jsx'
@@ -23,8 +22,4 @@ export default class LayoutUser extends React.Component {
       </div>
     )
   }
-}
-
-LayoutUser.propTypes = {
-  main: PropTypes.object
 }
