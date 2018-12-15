@@ -49,10 +49,6 @@ class Api {
   getCountry (alpha3) {
     return get(`/api/countries/${alpha3}`)
   }
-
-  getCountryStats (alpha3) {
-    return get(`https://restcountries.eu/rest/v2/alpha/${alpha3}`)
-  }
 }
 
 export default new Api()

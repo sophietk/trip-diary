@@ -13,4 +13,4 @@ render((
       <Redirect path='*' to='/start' />
     </Switch>
   </BrowserRouter>
-  ), document.getElementById('app'))
+), document.getElementById('app'))

@@ -24,7 +24,7 @@ export default class Country extends React.Component {
 
   visitCountry () {
     api.addCountry(this.props.match.params.countryId)
-    .then(() => this.fetchCountry)
+      .then(() => this.fetchCountry)
   }
 
   contents () {
