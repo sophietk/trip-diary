@@ -2,6 +2,9 @@
   "name": "trip-diary",
   "version": "1.0.0",
   "description": "A web application to log your trips around the world",
+  "engines": {
+    "node": "10.15.x"
+  },
   "scripts": {
     "build": "run-p build:*",
     "build:css": "node-sass --output-style compressed client/src/sass/main.scss > client/dist/assets/main.css",
